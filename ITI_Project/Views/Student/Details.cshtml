@@ -1,0 +1,15 @@
+﻿@model DetailsViewModel
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+    <h1>@ViewData["Title"]</h1>
+
+    <div>
+        <h4>StdId:   @Model.Student.Id</h4>
+        <h4>StdName: @Model.Student.Name</h4>
+        <h4>StdAge:  @Model.Student.Age</h4>
+        <h4>StdEmail:@Model.Student.Email</h4>
+        <h4>StdDept: @Model.Department.DeptName</h4>
+    </div>

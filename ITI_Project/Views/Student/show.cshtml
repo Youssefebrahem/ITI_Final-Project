@@ -1,0 +1,39 @@
+﻿@model List<Student>
+@{
+    ViewData["Title"] = "Student Show";
+    int No = 0;
+}
+
+    <h1>@ViewData["Title"]</h1>
+    <table border="1" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>DeptNo</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@(No+=1)</td>
+                    <td>@d.Name</td>
+                    <td>@d.Age</td>
+                    <td>@d.Department?.DeptName </td>
+
+                    <td>
+                        <a asp-controller="Student" asp-action="Details" asp-route-id="@d.Id" class="btn btn-info">Details</a>
+                        <a asp-controller="Student" asp-action="Delete" asp-route-id="@d.Id" class="btn btn-danger">Delete</a>
+                        <a asp-controller="Student" asp-action="Edit" asp-route-id="@d.Id" class="btn btn-warning">Edit</a>
+                    </td>
+
+                </tr>
+            }
+
+
+    </table>
+    <a asp-action="create" asp-controller="student" class="btn btn-primary">Create</a>

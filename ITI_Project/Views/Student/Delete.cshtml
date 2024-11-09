@@ -1,0 +1,22 @@
+﻿@model DetailsViewModel
+
+@{
+    ViewData["Title"] = "Delete Student";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h5 class="text-warning">Are you sure you want to delete this student?</h5>
+    <div>
+        <h4>StdId:   @Model.Student.Id</h4>
+        <h4>StdName: @Model.Student.Name</h4>
+        <h4>StdAge:  @Model.Student.Age</h4>
+        <h4>StdEmail:@Model.Student.Email</h4>
+        <h4>StdDept: @Model.Department.DeptName</h4>
+    </div>
+</div>
+<form asp-action="delete">
+    <input type="hidden" asp-for="Student.Id" />
+    <button type="submit">Delete</button>
+</form>

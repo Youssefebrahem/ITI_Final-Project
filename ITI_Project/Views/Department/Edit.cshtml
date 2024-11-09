@@ -1,0 +1,30 @@
+﻿@model Department
+@{
+    ViewBag.Title = "Edit Department";
+}
+    
+
+    <h1>@ViewData["Title"]</h1>
+    <a href="/department/show">Back to Show</a>
+    <form asp-action="Edit" method="post" asp-route-deptId="@Model.DeptId">
+        <fieldset>
+
+            <div>
+                <label asp-for="DeptId">Department ID:_______ <b>@Model.DeptId</b></label>
+            </div>
+
+            <div>
+                <label asp-for="DeptName">Department Name:___ </label>
+                <input asp-for="DeptName" type="text" />
+            </div>
+
+            <div>
+                <label asp-for="Capacity">Department Capacity: </label>
+                <input asp-for="Capacity" />
+            </div>
+
+            <div>
+                <input type="submit" value="Save" class="btn btn-warning" />
+            </div>
+        </fieldset>
+    </form>

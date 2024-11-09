@@ -1,0 +1,52 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "Student Edit";
+}
+
+
+    <h1>@ViewData["Title"]</h1>
+    <a href="/student/show">Back to Show</a>
+    <form asp-action="Edit" method="post" asp-route-Id="@Model.Id">
+        <fieldset>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div>
+                <label asp-for="Id">Student ID: <b>@Model.Id</b></label>
+                <input type="hidden" asp-for="Id" />
+            </div>
+
+            <div>
+                <label asp-for="Name">Student Name: </label>
+                <input asp-for="Name" type="text" />
+            </div>
+
+            <div>
+                <label asp-for="Age">Student Age: </label>
+                <input asp-for="Age" />
+            </div>
+
+            <div>
+                <label asp-for="DeptNo">Student Dept: </label>
+                <select asp-for="DeptNo" asp-items="@(new SelectList(ViewBag.depts, "DeptId", "DeptName"))"></select>
+            </div>
+
+            <div>
+                <label asp-for="Email">Student Email: </label>
+                <input asp-for="Email" type="text" />
+            </div>
+
+            <div>
+                <label asp-for="Password">Student Password: </label>
+                <input asp-for="Password" type="password" />
+            </div>
+
+            <div>
+                <label asp-for="ConfirmPassword">Student Confirm Password: </label>
+                <input asp-for="ConfirmPassword" type="password" />
+            </div>
+
+           
+            <div>
+                <input type="submit" value="Save" class="btn btn-warning" />
+            </div>
+        </fieldset>
+    </form>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ITI_Project.Models.Course>
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Credits</th>
+            <th>Operation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.Title</td>
+                <td>@course.Description</td>
+                <td>@course.Credits</td>
+                <td>
+                    <a asp-controller="Course" asp-action="Details" asp-route-id="@course.Id" class="btn btn-info">Details</a>
+                    <a asp-controller="Course" asp-action="Edit" asp-route-id="@course.Id" class="btn btn-warning">Edit</a>
+                    <a asp-controller="Course" asp-action="Delete" asp-route-id="@course.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" asp-controller="Course" class="btn btn-primary">Create New Course</a>

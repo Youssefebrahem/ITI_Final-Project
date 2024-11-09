@@ -1,0 +1,15 @@
+﻿@model ITI_Project.Models.Course
+
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Title: @Model.Title</h4>
+    <p>Description: @Model.Description</p>
+    <p>Credits: @Model.Credits</p>
+    <p>Status: @(Model.Status ? "Active" : "Inactive")</p>
+</div>
+<a href="/course/show" class="btn btn-secondary">Back to List</a>

@@ -1,0 +1,15 @@
+﻿@using ITI_Project.ViewModel
+@model DetailsViewModel
+
+@{
+    ViewBag.Title = "Details Department";
+}
+
+
+    <h1>@ViewData["Title"]</h1>
+
+    <div>
+        <h4>DeptId:   @Model.Department.DeptId</h4>
+        <h4>DeptName: @Model.Department.DeptName</h4>
+        <h4>Capacity: @Model.Department.Capacity</h4>
+    </div>

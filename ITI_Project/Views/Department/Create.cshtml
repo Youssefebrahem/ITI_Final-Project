@@ -1,0 +1,19 @@
+﻿@model Department
+@{
+    ViewBag.Title = "Create Department";
+}
+
+
+    <h1>@ViewData["Title"]</h1>
+    <a href="/department/show">Show</a>
+    <form asp-action="create" method="post">
+        department id       <input asp-for="DeptId" /> <br />
+        department Name     <input asp-for="DeptName" /> <br />
+        department capacity <input asp-for="Capacity" /> <br />
+        <input type="submit" value="Add" />
+    </form>
+
+    @section Scripts {
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    }

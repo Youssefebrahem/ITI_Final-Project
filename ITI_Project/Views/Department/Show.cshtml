@@ -1,0 +1,41 @@
+﻿@model List<Department>
+@{
+    ViewBag.Title = "Show Department";
+}
+
+    <h1>@ViewData["Title"]</h1>
+    <table border="1" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>DeptId</th>
+                <th>DeptName</th>
+                <th>Capacity</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                    <tr>
+                        <td colspan="3">No Data</td>
+                    </tr>
+            }
+            else
+            {
+                @foreach (var d in Model)
+                {
+                    <tr>
+                        <td>@d.DeptId</td>
+                        <td>@d.DeptName</td>
+                        <td>@d.Capacity</td>
+                        <td>
+                            <a asp-action="details" asp-controller="department" asp-route-id="@d.DeptId" class="btn btn-info">Details</a>
+                            <a asp-action="delete" asp-controller="department" asp-route-id="@d.DeptId"  class="btn btn-danger">Delete</a>
+                            <a asp-action="edit" asp-controller="department" asp-route-id="@d.DeptId"  class="btn btn-warning">Edit</a>
+                        </td>
+                    </tr>   
+                }
+            }
+
+    </table>
+    <a asp-action="create" asp-controller="department" class="btn btn-primary">Create</a>

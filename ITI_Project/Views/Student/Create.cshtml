@@ -1,0 +1,61 @@
+﻿@model ITI_Project.Models.Student
+@{
+    ViewData["Title"] = "Create Student";
+    SelectList deptSL = new SelectList(ViewBag.depts, "DeptId", "DeptName");
+}
+
+
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+        <a href="/student/show" class="btn btn-primary">Show</a> 
+        <form asp-action="Create" method="post">
+            <br />
+            <div>
+                Id
+                <input asp-for="Id" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <br />
+            <div >
+                Name
+                <input asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <br />
+            <div >
+                Age
+                <input asp-for="Age" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <br />
+            <div >
+                Email
+                <input asp-for="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <br />
+            <div >
+                Password
+                <input asp-for="Password" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <br />
+            <div >
+                ConfirmPassword
+                <input asp-for="ConfirmPassword" type="password" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <br />
+            <div >
+                <label for="DeptNo">Department</label>
+                <select asp-for="DeptNo" asp-items="deptSL">
+                    <option value="">Select Department</option>
+                </select>
+                <span asp-validation-for="DeptNo" class="text-danger"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+        <!-- Include scripts here if needed -->
+    </div>
+
